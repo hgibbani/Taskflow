@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TaskFlow — Keep Track of Your Day</title>
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Favicon placeholder (inline svg to avoid 404) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+</head>
+<body>
+  <div class="app-wrapper">
+   
+    <header class="app-header">
+      <div class="logo">
+        <span class="logo-icon">⚡</span>
+        <h1>TaskFlow</h1>
+      </div>
+      <p class="subtitle">Organize your thoughts, prioritize your day.</p>
+    </header>
+    <!-- Stats Dashboard Section -->
+    <section class="stats-section" aria-label="Task Statistics">
+      <div class="stats-card total">
+        <div class="stats-info">
+          <span class="stats-label">Total Tasks</span>
+          <span class="stats-count" id="totalCounter">0</span>
+        </div>
+        <div class="stats-icon-bg">📋</div>
+      </div>
+      <div class="stats-card pending">
+        <div class="stats-info">
+          <span class="stats-label">Pending</span>
+          <span class="stats-count" id="pendingCounter">0</span>
+        </div>
+        <div class="stats-icon-bg">⏳</div>
+      </div>
+      <div class="stats-card completed">
+        <div class="stats-info">
+          <span class="stats-label">Completed</span>
+          <span class="stats-count" id="completedCounter">0</span>
+        </div>
+        <div class="stats-icon-bg">✅</div>
+      </div>
+    </section>
+    <!-- Main Container: Holds the main functions of the app -->
+    <main class="main-container">
+      <!-- Section 1: Add New Task Form -->
+      <section class="add-task-section" aria-label="Add Task">
+        <form id="todoForm" class="todo-form" novalidate>
+          <div class="input-group">
+            <input 
+              type="text" 
+              id="taskInput" 
+              placeholder="What needs to be done today?" 
+              maxlength="100"
+              autocomplete="off"
+              required
+            >
+            <span class="focus-border"></span>
+          </div>
+          <button type="submit" id="addTaskBtn" class="primary-btn">
+            <span class="btn-text">Add Task</span>
+            <span class="btn-icon">+</span>
+          </button>
+        </form>
+        <div id="validationError" class="validation-error" aria-live="polite"></div>
+      </section>
+      <!-- Section 2: Search and Filters -->
+      <section class="controls-section" aria-label="Search and Filter Tasks">
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="searchInput" placeholder="Search tasks..." autocomplete="off">
+        </div>
+        
+        <div class="filters-group">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="pending">Pending</button>
+          <button class="filter-btn" data-filter="completed">Completed</button>
+        </div>
+      </section>
+      <!-- Section 3: Task List and Empty States -->
+      <section class="task-list-section" aria-label="Task List">
+        <!-- Empty State Container -->
+        <div id="emptyState" class="empty-state">
+          <div class="empty-icon">💃</div>
+          <h3 class="empty-title">All caught up!</h3>
+          <p class="empty-desc">Enjoy your day or add some new tasks to get started.</p>
+        </div>
+        <!-- Task List Element -->
+        <ul id="taskList" class="task-list">
+          <!-- Dynamic tasks go here -->
+        </ul>
+      </section>
+      <!-- Section 4: Bulk Actions -->
+      <section class="bulk-actions-section" aria-label="Bulk Actions">
+        <button id="clearCompletedBtn" class="secondary-btn" disabled>
+          Clear Completed
+        </button>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <p>&copy; 2026 Ibbani HG. All Rights Reserved.</p>
+    </footer>
+  </div>
+ 
+
+  <script src="script.js"></script>
+</body>
+</html>
