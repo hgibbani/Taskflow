@@ -36,7 +36,7 @@ This project is designed as a portfolio-ready demonstration of core frontend dev
 ---
 ## 📂 Project Structure
 ```text
-todo-list/
+TaskFlow/
 │
 ├── index.html     # Page layout, SEO configuration, and static HTML structure
 ├── style.css      # Theme styles, responsiveness rules, layout, and keyframes
